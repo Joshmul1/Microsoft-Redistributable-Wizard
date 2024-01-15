@@ -1,6 +1,9 @@
 
 ![Untitled-1](https://github.com/terrykeeton97/Microsoft-Redistributable-Wizard/assets/116961227/7e750cd5-2480-4095-8d5a-46fd06443019)
-
+<p align="center">
+  <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C# Badge"/>
+  <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white" alt=".NET Badge"/>
+</p>
 ## Introduction
 Microsoft Redistributable Wizard is a C# tool developed using .NET 6, designed to identify installed Microsoft Visual C++ Redistributable packages on Windows systems.
 
