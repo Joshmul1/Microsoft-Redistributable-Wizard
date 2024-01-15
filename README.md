@@ -6,7 +6,7 @@
 </p>
 
 ## Introduction
-Microsoft Redistributable Wizard is a C# tool developed using .NET 6, designed to identify installed Microsoft Visual C++ Redistributable packages on Windows systems.
+Microsoft Redistributable Wizard is a C# library developed using .NET 6, designed to identify installed Microsoft Visual C++ Redistributable packages on Windows systems.
 
 ## Features
 - Detection of all Microsoft Visual C++ Redistributables (2005 to 2022)
