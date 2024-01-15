@@ -1,3 +1,6 @@
+
+![Untitled-1](https://github.com/terrykeeton97/Microsoft-Redistributable-Wizard/assets/116961227/7e750cd5-2480-4095-8d5a-46fd06443019)
+
 ## Introduction
 Microsoft Redistributable Wizard is a C# tool developed using .NET 6, designed to identify installed Microsoft Visual C++ Redistributable packages on Windows systems.
 
