@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>Redistributable_Wizard</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <ApplicationManifest></ApplicationManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Management" Version="8.0.0" />
+    </ItemGroup>
+
+</Project>
