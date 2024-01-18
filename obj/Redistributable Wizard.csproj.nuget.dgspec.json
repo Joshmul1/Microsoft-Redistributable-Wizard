@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj": {}
+    "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj": {}
   },
   "projects": {
-    "Y:\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj": {
+    "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
+        "projectUniqueName": "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
         "projectName": "Redistributable Wizard",
-        "projectPath": "Y:\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
+        "projectPath": "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
         "packagesPath": "C:\\Users\\terry\\.nuget\\packages\\",
-        "outputPath": "Y:\\Projects\\C#\\Redistributable Wizard\\obj\\",
+        "outputPath": "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\terry\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,12 +39,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "System.Management": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

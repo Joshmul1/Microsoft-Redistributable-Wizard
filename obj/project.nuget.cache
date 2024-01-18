@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S+LfDarYbFwabALD9anXMYjGnQfPPvw+8VvavJCQFMIE7IpdlAN21HN9183G8R1Ay+s+bQUy8r1WL1zWnBZhtw==",
+  "dgSpecHash": "tMuuNlccs6UyJQHuJQAq8eThAd5ammHL2faXWR1vi8PUwK+BIx8uhTo+2fnLWKlhn6YpEpbD8MZ09VuufD1Cpw==",
   "success": true,
-  "projectFilePath": "Y:\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\terry\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "\\\\KEETONFAMILYNAS\\terrykeeton\\Projects\\C#\\Redistributable Wizard\\Redistributable Wizard.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

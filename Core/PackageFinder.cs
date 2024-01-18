@@ -34,16 +34,16 @@ public static class PackageFinder
     /// <exception cref="Exception">Thrown when an error occurs during registry access.</exception>
     public static bool IsPackageInstalled<TVersion>(TVersion version)
     {
-        if (version == null) return false;
-        if (!RedistributableKeys.TryGetValue(version, out var registryInfo)) return false;
+        if (version is null) return false;
+        if (!RedistributableKeys.TryGetValue(version, out var dictionary)) return false;
         
         try
         {
-            var registryView = registryInfo.Arch == Architecture.X64 ? RegistryView.Registry64 : RegistryView.Registry32;
+            var registryView = dictionary.architecture == Architecture.X64 ? RegistryView.Registry64 : RegistryView.Registry32;
             using var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView);
-            using var subKey = baseKey.OpenSubKey(registryInfo.RegistryKey);
+            using var subKey = baseKey.OpenSubKey(dictionary.registryKey);
             var subKeyValue = subKey?.GetValue("DisplayName")?.ToString().ToLower();
-            if (subKeyValue != null && subKeyValue.Contains(registryInfo.DisplayName.ToLower()))
+            if (subKeyValue != null && subKeyValue.Contains(dictionary.displayName.ToLower()))
                 return true;
         }
         catch (Exception ex)
@@ -63,7 +63,7 @@ public static class PackageFinder
     /// </returns>
     public static List<string> GetAllMissingPackages()
     {
-        var missingPackages = (from package in RedistributableKeys where !IsPackageInstalled(package.Key) select package.Value.DisplayName).ToList();
+        var missingPackages = (from package in RedistributableKeys where !IsPackageInstalled(package.Key) select package.Value.displayName).ToList();
 
         if (missingPackages.Count == 0)
             missingPackages.Add("All packages are installed");
@@ -79,6 +79,82 @@ public static class PackageFinder
     /// </returns>
     public static List<string> GetAllInstalledPackages()
     {
-        return (from package in RedistributableKeys where IsPackageInstalled(package.Key) select package.Value.DisplayName).ToList();
+        return (from package in RedistributableKeys where IsPackageInstalled(package.Key) select package.Value.displayName).ToList();
+    }
+
+    /// <summary>
+    /// Installs a specified package version, optionally running the installer silently.
+    /// </summary>
+    /// <typeparam name="TVersion">The version of the package to install.</typeparam>
+    /// <param name="version">The version of the package to install.</param>
+    /// <param name="silentInstall">Specifies whether to run the installer silently (no visible window).</param>
+    /// <exception cref="Exception">Thrown if the download or installation encounters an error, or the user is not an Administrator</exception>
+    public static async Task InstallPackageAsync<TVersion>(TVersion version, bool silentInstall = false)
+    {
+        if (version is null) return;
+        if (!RedistributableKeys.TryGetValue(version, out var dictionary)) return;
+
+        if (!IsUserAdministrator())
+            throw new Exception("User is not running as an Administrator");
+        
+        try
+        {
+            var downloadLink = dictionary.downloadLink;
+            if (!string.IsNullOrEmpty(downloadLink))
+            {
+                using var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(downloadLink);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var fileBytes = await response.Content.ReadAsByteArrayAsync();
+                    if (await RunOnDiskAsync(fileBytes, silentInstall)) return;
+                }
+
+                throw new Exception($"Failed to download the file from {downloadLink}. Status code: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// Installs a specified package version, optionally running the installer silently.
+    /// </summary>
+    /// <typeparam name="TVersion">The version of the package to install.</typeparam>
+    /// <param name="version">The version of the package to install.</param>
+    /// <param name="silentInstall">Specifies whether to run the installer silently (no visible window).</param>
+    /// <exception cref="Exception">Thrown if the download or installation encounters an error, or the user is not an Administrator</exception>
+    public static void InstallPackage<TVersion>(TVersion version, bool silentInstall = false)
+    {
+        if (version is null) return;
+        if (!RedistributableKeys.TryGetValue(version, out var dictionary)) return;
+
+        if (!IsUserAdministrator())
+            throw new Exception("User is not running as an Administrator");
+
+        try
+        {
+            var downloadLink = dictionary.downloadLink;
+            if (!string.IsNullOrEmpty(downloadLink))
+            {
+                using var httpClient = new HttpClient();
+                var response = httpClient.GetAsync(downloadLink).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var fileBytes = response.Content.ReadAsByteArrayAsync().Result;
+                    if (RunOnDisk(fileBytes, silentInstall)) return;
+                }
+
+                throw new Exception($"Failed to download the file from {downloadLink}. Status code: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 }
