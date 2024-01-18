@@ -31,7 +31,7 @@ If you have suggestions for improvements or new features, feel free to fork this
 
 ## To-Do
 Here are some enhancements and features we're looking to add:
-- [ ] Give the user the option to install redistributables (Directly from the Microsoft Website)
-- [ ] Auto installer
+- [X] Give the user the option to install redistributables (Directly from the Microsoft Website)
+- [X] Auto installer
 - [ ] Provide different ways to detect the installation of the packages
-- [ ] More comprehensive system compatibility checks
+- [X] More comprehensive system compatibility checks
