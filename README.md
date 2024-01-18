@@ -18,7 +18,7 @@ Microsoft Redistributable Wizard is a C# library developed using .NET 6, designe
 - .NET 6 Framework
 
 ## Installation and Usage
-Compile the project and include it as a project reference into your own project
+Compile the project and include it as a project reference into your own project  
 Search NuGet for the package, click install
 
 ## Contributing
