@@ -5,8 +5,6 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redistributable Wizard", "Redistributable Wizard.csproj", "{E0905B0D-BDE7-4E0A-83B9-C35E24211B61}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "..\Test\Test.csproj", "{3AE2E665-8A8D-4407-A94C-43CCB7CFAD90}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10508ED7-88C7-4D96-8A85-81055A6DBE33}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -22,10 +20,6 @@ Global
 		{E0905B0D-BDE7-4E0A-83B9-C35E24211B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0905B0D-BDE7-4E0A-83B9-C35E24211B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0905B0D-BDE7-4E0A-83B9-C35E24211B61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AE2E665-8A8D-4407-A94C-43CCB7CFAD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AE2E665-8A8D-4407-A94C-43CCB7CFAD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AE2E665-8A8D-4407-A94C-43CCB7CFAD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AE2E665-8A8D-4407-A94C-43CCB7CFAD90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
